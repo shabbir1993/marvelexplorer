@@ -52,9 +52,13 @@ class Search extends Component {
     });
   }
 
+  submitHandler = (e) => {
+    e.preventDefault();
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.submitHandler}>
         <input 
           placeholder="Search for Marvel Super Hero..."
           ref = {input => this.search = input}
