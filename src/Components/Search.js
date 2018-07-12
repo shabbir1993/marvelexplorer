@@ -1,7 +1,7 @@
 import React , { Component } from 'react';
 import Marvel from 'marvel-api';
 import Suggestion from './Suggestion';
-
+import '../App.css';
 
 const PUBLIC_KEY = `35e8dd872e4380b366980f99b9bf09d2`;
 const PRIVATE_KEY = `d79ca6635a5807a68e77b503b651bbadd7136983`;
@@ -9,6 +9,8 @@ let marvel = Marvel.createClient({
   publicKey : PUBLIC_KEY,
   privateKey : PRIVATE_KEY
 });
+
+
 
 class Search extends Component {
   
@@ -37,10 +39,16 @@ class Search extends Component {
     this.setState({
       query : this.search.value
     }, () => {
-      if(this.state.query && this.state.query.length > 1) {
+      if(this.state.query && this.state.query.length >= 1) {
         this.getHero();
       } else if(!this.state.query) {
       }
+    });
+  }
+
+  handleClear = () => {
+    this.setState({
+      results : []
     });
   }
 
@@ -51,6 +59,8 @@ class Search extends Component {
           placeholder="Search for Marvel Super Hero..."
           ref = {input => this.search = input}
           onChange = {this.handleInputChange}
+          onClear = {this.handleClear}
+          className='App-search'
           />
         <Suggestion results={this.state.results} />
       </form>

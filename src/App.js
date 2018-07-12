@@ -1,9 +1,9 @@
-import React from 'react'
-
-import Search from './Components/Search'
+import React from 'react';
+import './App.css'
+import Search from './components/Search';
 
 const App = () => (
-  <div>
+  <div className="App">
     <Search />
   </div>
 )

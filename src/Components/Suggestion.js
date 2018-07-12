@@ -1,4 +1,5 @@
 import React from 'react'; 
+import '../App.css';
 
 const Suggestion = (props) => {
   const heroes = props.results.map(r => (
@@ -7,7 +8,7 @@ const Suggestion = (props) => {
     </li>
     
   ))
-  return <ul>{heroes}</ul>
+  return <ul className='App-list'>{heroes}</ul>
 }
 
 export default Suggestion; 
